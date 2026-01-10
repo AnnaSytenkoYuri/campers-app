@@ -1,0 +1,25 @@
+.header {
+  padding-top: 28px;
+  padding-bottom: 29px;
+}
+
+.logo {
+  width: 136px;
+  height: 16px;
+}
+
+.headerContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+

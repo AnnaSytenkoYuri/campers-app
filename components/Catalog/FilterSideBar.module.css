@@ -1,0 +1,110 @@
+.sidebar {
+  width: 360px;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.input {
+  border-radius: 12px;
+  padding: 18px 218px 18px 20px;
+  width: 360px;
+  height: 56px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 40px;
+  color: var(--gray);
+  background: var(--inputs);
+  outline: none;
+}
+
+.filtersTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+
+.divider {
+  stroke-width: 5px;
+  stroke: var(--gray-light);
+  margin-bottom: 24px;
+}
+
+/* GRID як у макеті */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* КНОПКИ-ФІЛЬТРИ */
+.grid button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--main);
+
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+
+  width: 112px;
+  height: 96px;
+
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+/* АКТИВНИЙ СТАН */
+.grid button[aria-pressed="true"] {
+  border-color: var(--button-hover);
+}
+
+/* SEARCH */
+.searchBtn {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  background: var(--button);
+  border: none;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+    background: var(--button-hover);
+}

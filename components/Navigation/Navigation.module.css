@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigationItem {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--main);
+}
+
+.navigationLink {
+    transition: 0.3s ease;
+  }
+
+.navigationLink:hover,
+.navigationLink:focus {
+    color: var(--button-hover);
+}
