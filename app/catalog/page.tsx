@@ -1,12 +1,24 @@
-import { getCampers } from "@/lib/api/campersApi";
-import CampersList from "@/components/Catalog/CampersList";
+"use client";
 
-// interface CatalogPageProps {
-//   searchParams: Record<string, string>;
-// }
+import { useEffect } from "react";
+import CampersList from "@/components/Catalog/CamperList/CampersList";
+import { useCampersStore } from "@/store/campersStore";
 
-export default async function CatalogPage() {
-  const campers = await getCampers();
+export default function CatalogPage() {
+  const campers = useCampersStore((state) => state.campers);
+  const isLoading = useCampersStore((state) => state.isLoading);
 
-  return <CampersList campers={campers} />;
+  const fetchCampers = useCampersStore((state) => state.fetchCampers);
+  const resetCampers = useCampersStore((state) => state.resetCampers);
+  const setFilters = useCampersStore((state) => state.setFilters);
+  const total = useCampersStore((state) => state.total);
+
+  useEffect(() => {
+    
+    setFilters({});
+    resetCampers();
+    fetchCampers(true);
+  }, [fetchCampers, resetCampers, setFilters]);
+
+  return <CampersList campers={campers} isLoading={isLoading} total={total} />;
 }

@@ -1,26 +1,27 @@
-import { Camper } from "../types/camper";
-
 import axios from "axios";
 
 const campersApi = axios.create({
   baseURL: "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io",
 });
 
-export const getCampers = async () => {
-  const res = await campersApi.get("/campers");
+export interface CampersQuery {
+  location?: string;
+    form?: string;
+    transmission?: string;
+    AC?: boolean;
+    kitchen?: boolean;
+    TV?: boolean;
+    bathroom?: boolean;
+    page: number;
+    limit: number;
+}
 
-  console.log("API DATA:", res.data);
-  console.log("IS ARRAY:", Array.isArray(res.data));
-
-  return res.data.items;
+export const getCampers = async (params?: CampersQuery) => {
+  const res = await campersApi.get("/campers", { params });
+  return res.data; 
 };
 
-export async function getCampersById(id: string): Promise<Camper> {
-  const res = await campersApi.get<Camper>(`/campers/${id}`);
-
-  if (!res.data || !res.data.id) {
-    throw new Error("No camper data found");
-  }
-
+export const getCamperById = async (id: string) => {
+  const res = await campersApi.get(`/campers/${id}`);
   return res.data;
 }

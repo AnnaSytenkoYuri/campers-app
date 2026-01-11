@@ -1,0 +1,25 @@
+.gallery {
+display: flex;
+flex-direction: row;
+gap: 48px;
+width: 1312px;
+height: 312px;
+margin-bottom: 28px;
+}
+
+.imageWrapper {
+    border-radius: 10px;
+    width: 292px;
+    height: 312px;
+    
+}
+.image{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+

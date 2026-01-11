@@ -1,23 +1,25 @@
-import FiltersSidebar from '@/components/Catalog/FiltersSidebar';
-import css from './layout.module.css';
+"use client";
+import FiltersSidebar from "@/components/Catalog/FilterSideBar/FiltersSidebar";
+import css from "./layout.module.css";
+import { usePathname } from "next/navigation";
 
 export default function CatalogLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const showSide = pathname === "/catalog";
   return (
     <section className={css.catalogSection}>
       <div className={css.catalogContainer}>
-        {/* ЛІВА КОЛОНКА */}
-        <aside className={css.filterSide}>
-          <FiltersSidebar  />
-        </aside>
+        {showSide && (
+          <aside className={css.filterSide}>
+            <FiltersSidebar />
+          </aside>
+        )}
 
-        {/* ПРАВА ЧАСТИНА */}
-        <main className={css.catalogMain}>
-          {children}
-        </main>
+        <main className={css.catalogMain}>{children}</main>
       </div>
     </section>
   );

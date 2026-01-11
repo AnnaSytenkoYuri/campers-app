@@ -1,21 +1,26 @@
 "use client";
 import { Camper } from "@/lib/types/camper";
-import { useFavoritesStore } from "@/store/favoritesStore";
 import Image from "next/image";
 import css from "./CamperCard.module.css";
+import { useCampersStore } from "@/store/campersStore";
+import { useRouter } from "next/navigation";
 
 interface CamperCardProps {
   camper: Camper;
 }
 
 export default function CamperCard({ camper }: CamperCardProps) {
-  const { favorites, toggleFavorite } = useFavoritesStore();
+  const favorites = useCampersStore((state) => state.favorites);
+  const toggleFavorite = useCampersStore((state) => state.toggleFavorite);
   const isFavorite = favorites.includes(camper.id);
+  const router = useRouter();
+
+  const imageSrc = camper.gallery?.[0]?.thumb ?? "/images/placeholder.jpg";
   return (
     <li className={css.card}>
       <Image
-      className={css.image}
-        src={camper.image?.[0] || "/images/placeholder.jpg"}
+        className={css.image}
+        src={imageSrc}
         alt={camper.name}
         width={292}
         height={320}
@@ -25,7 +30,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
           <div className={css.headerWrapper}>
             <h3 className={css.title}>{camper.name}</h3>
             <div className={css.priceWrap}>
-              <span className={css.price}>{camper.price}</span>
+              <span className={css.price}>{camper.price.toFixed(2)}</span>
               <button onClick={() => toggleFavorite(camper.id)}>
                 {isFavorite ? (
                   <svg
@@ -59,18 +64,26 @@ export default function CamperCard({ camper }: CamperCardProps) {
           </div>
 
           <div className={css.meta}>
-            {/* <span className={css.rating}>
-              ⭐ {camper.rating} ({camper.reviews} Reviews)
-            </span> */}
+            <span className={css.rating}>
+              ⭐ {camper.rating.toFixed(1)} ({camper.reviews?.length ?? 0}{" "}
+              Reviews)
+            </span>
             <span className={css.dot}>•</span>
             <span className={css.location}>{camper.location}</span>
           </div>
 
           <p className={css.description}>{camper.transmission}</p>
 
-          <ul className={css.features}>{camper.engine}</ul>
+          <ul className={css.features}>
+            <li>{camper.engine}</li>
+          </ul>
 
-          <button className={css.moreBtn}>Show more</button>
+          <button
+            className={css.moreBtn}
+            onClick={() => router.push(`/catalog/${camper.id}`)}
+          >
+            Show more
+          </button>
         </div>
       </div>
     </li>

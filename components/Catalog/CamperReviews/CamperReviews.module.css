@@ -1,0 +1,42 @@
+.reviewList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.reviewCard {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+}
+
+.filledStar {
+  color: #ecc411;
+}
+
+.emptyStar {
+  color: #efefef;
+}
+
+.comment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+}

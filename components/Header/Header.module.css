@@ -1,6 +1,7 @@
 .header {
   padding-top: 28px;
   padding-bottom: 29px;
+  background: var(--inputs);
 }
 
 .logo {
