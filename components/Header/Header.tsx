@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 export default function Header() {
   return (
     <header className={css.header}>
-      <div className="container">
+      <div className="pageContainer">
         <div className={css.headerContent}>
         <Link href="/" className={css.logo}>
           <Image

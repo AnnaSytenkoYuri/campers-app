@@ -1,9 +1,8 @@
 .heroBlock {
-  width: 100vw;
-  padding-left: 64px;
+  width: 100%;
   padding-top: 260px;
   padding-bottom: 260px;
-  background-image: url("/images/Picture.jpg");
+  background-image: url('/images/Picture.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,5 +49,5 @@
 }
 
 .heroButton:hover {
-  background: var(--button-hover);;
+  background: var(--button-hover);
 }

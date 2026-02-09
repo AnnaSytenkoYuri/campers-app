@@ -79,7 +79,7 @@ export const useCampersStore = create<CampersState>((set, get) => ({
     try {
       const params = {
         page: reset ? 1 : page,
-        limit: 8,
+        limit: 4,
 
         ...(location ? { location } : {}),
         ...(form ? { form } : {}),
