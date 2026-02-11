@@ -17,10 +17,10 @@ interface Review {
 }
 
 interface CamperReviewsProps {
-  reviews: Review[];
+  review: Review;
 }
 
-export default function CamperReviews({ reviews }: CamperReviewsProps) {
+export default function CamperReviews({ review }: CamperReviewsProps) {
   if (reviews.length === 0) return <p>No reviews yet.</p>;
 
   return (

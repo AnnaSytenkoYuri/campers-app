@@ -1,77 +1,67 @@
-.title {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 133%;
-  color: var(--main);
-  margin-bottom: 8px;
+.pageSection {
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
 
-.priceWrap {
-  margin-bottom: 28px;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 
-.price {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 133%;
-  color: var(--main);
-  margin-bottom: 28px;
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.meta {
-  align-items: center;
+.head {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  font-size: 14px;
-  color: #6c717b;
-  margin-bottom: 16px;
 }
 
-.description {
-  font-family: var(--font-family);
+.numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.numbersWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.numberInfo {
+  display: flex;
+  gap: 4px;
+  align-items: center;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  color: var(--text);
-  margin-bottom: 60px;
+  color: #101828;
 }
 
-.tabs {
-  display: flex;
-  gap: 40px;
+.ratingIcon {
+  fill: #ffc531;
 }
 
-.tabButton {
-  background: none;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  font-family: var(--font-family);
+.locationIcon {
+  fill: #101828;
+}
+
+.title,
+.price {
   font-weight: 600;
-  font-size: 20px;
-  line-height: 120%;
-  color: var(--main);
-  margin-bottom: 44px;
+  font-size: 24px;
+  line-height: 133%;
+  color: #101828;
 }
 
-.tabButton.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -24px; 
-    width: 100%;
-    height: 5px; 
-    background-color: var(--button); 
-    border-radius: 1px;
-  }
-  
-  .infoSections {
-    display: flex;;
-    flex-direction: row;
-    gap: 40px;
-  }
-
-
-
- 
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}

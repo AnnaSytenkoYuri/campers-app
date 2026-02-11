@@ -29,7 +29,7 @@ export default function RootLayout({
         <Toaster position="top-right" />
         <TanStackProvider>
           <Header />
-          <main>{children}</main>
+          <main className='pageContainer'>{children}</main>
         </TanStackProvider>
       </body>
     </html>
