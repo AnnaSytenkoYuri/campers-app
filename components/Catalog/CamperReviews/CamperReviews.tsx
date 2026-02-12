@@ -1,45 +1,40 @@
-"use client";
+'use client';
+import css from './CamperReviews.module.css';
+import { Review } from '@/lib/types/camper';
 
-import React from "react";
-import css from "./CamperReviews.module.css";
-
-export interface CamperReview {
-  reviewer_name: string;
-  reviewer_rating: number;
-  comment: string;
-}
-
-interface Review {
-  id: string;
-  user: string;
-  rating: number;
-  comment: string;
-}
 
 interface CamperReviewsProps {
-  review: Review;
+  review: Review; 
 }
 
 export default function CamperReviews({ review }: CamperReviewsProps) {
-  if (reviews.length === 0) return <p>No reviews yet.</p>;
+  const firstLetter = review.reviewer_name.charAt(0).toUpperCase();
+  const rating = review.reviewer_rating;
 
   return (
-    <ul className={css.reviewList}>
-      {reviews.map((review) => (
-        <li key={review.id} className={css.reviewCard}>
-          <div className={css.header}>
-            <strong>{review.user}</strong>
-            <span className={css.rating}>
-              {Array.from({ length: 5 }, (_, i) => (
-                <span key={i} className={i < review.rating ? css.filledStar : css.emptyStar}>
-                  ★
-                </span>
-              ))}
-            </span>
+    <div className={css.reviewCard}>
+      <div className={css.reviewerInfo}>
+        <h2 className={css.reviewerImage}>{firstLetter}</h2>
+        <div className={css.reviewerDetails}>
+          <p className={css.name}>{review.reviewer_name}</p>
+          <div className={css.rating}>
+            {[1, 2, 3, 4, 5].map(star => (
+              <svg
+                key={star}
+                width={16}
+                height={16}
+                viewBox="0 0 16 16"
+                className={
+                  star <= rating ? css.ratingIcon : css.ratingIconNeutral
+                }
+              >
+                <use href="/sprite.svg#star" />
+              </svg>
+            ))}
           </div>
-          <p className={css.comment}>{review.comment}</p>
-        </li>
-      ))}
-    </ul>
+        </div>
+      </div>
+      <p className={css.text}>{review.comment}</p>
+    </div>
   );
 }

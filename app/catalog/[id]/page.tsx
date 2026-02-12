@@ -49,5 +49,5 @@ export async function generateMetadata({params}: Props): Promise<Metadata>{
 
 export default async function Page({params}: Props){
   const {id} = await params;
-  return <CamperPage id={id}
-}
+  return <CamperPage id={id}/>;
+} 
