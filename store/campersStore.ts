@@ -1,121 +1,38 @@
-import { create } from "zustand";
-import { Camper } from "@/lib/types/camper";
-import { getCampers } from "@/lib/api/campersApi";
-import { persist } from "zustand/middleware";
+import { Camper } from '@/lib/types/camper';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-interface Filters {
-  location?: string;
-  form?: string;
-  transmission?: string;
-  AC?: boolean;
-  kitchen?: boolean;
-  TV?: boolean;
-  bathroom?: boolean;
-}
-interface CampersState {
+interface CamperStoreProps {
   campers: Camper[];
-  filters: Filters;
-  page: number;
-  isLoading: boolean;
-  error: string | null;
-  total: number;
-
-  favorites: string[];
-  toggleFavorite: (id: string) => void;
-
-  setFilters: (filters: Filters) => void;
-  fetchCampers: (reset?: boolean) => Promise<void>;
-  loadMore: () => Promise<void>;
-  resetCampers: () => void;
-  resetFilters: () => void;
+  currentPage: number;
+  hasMore: boolean;
+  setCampers: (campers: Camper[]) => void;
+  addCampers: (campers: Camper[]) => void;
+  setCurrentPage: (page: number) => void;
+  setHasMore: (value: boolean) => void;
+  clearCampers: () => void;
 }
 
-export const useCampersStore = create<CampersState>()(
+const useCamperStore = create<CamperStoreProps>()(
   persist(
-    (set, get) => ({
+    set => ({
       campers: [],
-      filters: {},
-      page: 1,
-      total: 0,
-      isLoading: false,
-      error: null,
-
-      favorites: [],
-
-      toggleFavorite: (id) =>
-        set((state) => ({
-          favorites: state.favorites.includes(id)
-            ? state.favorites.filter((f) => f !== id)
-            : [...state.favorites, id],
+      currentPage: 1,
+      hasMore: true,
+      setCampers: campers => set({ campers, currentPage: 1 }),
+      addCampers: campers =>
+        set(state => ({
+          campers: [...state.campers, ...campers],
+          currentPage: state.currentPage + 1,
         })),
-
-      setFilters: (filters) =>
-        set({
-          filters,
-          page: 1,
-        }),
-
-      resetFilters: () =>
-        set({
-          filters: {},
-          campers: [],
-          page: 1,
-        }),
-
-      resetCampers: () =>
-        set({
-          campers: [],
-          page: 1,
-        }),
-
-      fetchCampers: async (reset = false) => {
-        const { filters, page } = get();
-        const { location, form, transmission, AC, kitchen, TV, bathroom } = filters;
-
-        set({ isLoading: true, error: null });
-
-        try {
-          const params = {
-            page: reset ? 1 : page,
-            limit: 4,
-            ...(location ? { location } : {}),
-            ...(form ? { form } : {}),
-            ...(transmission ? { transmission } : {}),
-            ...(AC ? { AC: true } : {}),
-            ...(kitchen ? { kitchen: true } : {}),
-            ...(TV ? { TV: true } : {}),
-            ...(bathroom ? { bathroom: true } : {}),
-          };
-
-          const response = await getCampers(params);
-
-          const items = Array.isArray(response) ? response : response.items;
-          const total = Array.isArray(response) ? response.length : response.total;
-
-          set((state) => ({
-            campers: reset ? items : [...state.campers, ...items],
-            total,
-            isLoading: false,
-          }));
-        } catch {
-          set({
-            error: "Failed to fetch campers",
-            isLoading: false,
-          });
-        }
-      },
-
-      loadMore: async () => {
-        const nextPage = get().page + 1;
-        set({ page: nextPage });
-        await get().fetchCampers(false);
-      },
+      setCurrentPage: page => set({ currentPage: page }),
+      setHasMore: value => set({ hasMore: value }),
+      clearCampers: () => set({ campers: [], currentPage: 1, hasMore: true }),
     }),
     {
-      name: "campers-storage",
-      partialize: (state) => ({
-        favorites: state.favorites,
-      }),
+      name: 'camper-storage',
     }
   )
 );
+
+export default useCamperStore;

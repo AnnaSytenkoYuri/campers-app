@@ -1,0 +1,119 @@
+.sidebar {
+    width: 100%;
+    @media screen and (min-width: 1440px) {
+      width: 360px;
+    }
+  }
+  
+  .locationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  
+  .sectionTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #6c717b;
+  }
+  
+  .input {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 16px 16px 16px 48px;
+    background: #f7f7f7;
+  }
+  
+  .inputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .locationInput::placeholder {
+    color: #6c717b;
+  }
+  .inputIcon {
+    position: absolute;
+    left: 16px;
+    pointer-events: none;
+    fill: #6c717b;
+  }
+  
+  .iconActive {
+    fill: #101828;
+  }
+  
+  .filtersTitle {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    margin-bottom: 24px;
+  }
+  
+  .divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #dadde1;
+    margin-bottom: 24px;
+  }
+  
+  .sectionTitleFilters {
+    margin-bottom: 32px;
+  }
+  
+  .optionBtn {
+    border: 1px solid #dadde1;
+    border-radius: 12px;
+    padding: 16px 18px;
+    width: 112px;
+    height: 96px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+  }
+  
+  .labelText {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #101828;
+  }
+  
+  .optionsContainer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .equipmentContainer {
+    margin-bottom: 32px;
+  }
+  
+  .vehicleTypeContainer {
+    margin-bottom: 40px;
+  }
+  
+  .active {
+    border-color: #e44848;
+  }
+  
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+  
+    @media screen and (min-width: 1440px) {
+      justify-content: start;
+    }
+  }

@@ -1,34 +1,6 @@
-export interface CamperGalleryItem {
+export interface Gallery {
   thumb: string;
   original: string;
-}
-
-export interface Camper {
-  id: string;
-  name: string;
-  price: number;
-  location: string;
-  rating: number;
-  reviews: Review[];
-  gallery: CamperGalleryItem[];
-  transmission: string;
-  engine: string;
-  kitchen: boolean;
-  AC: boolean;
-  bathroom: boolean;
-  TV: boolean;
-  form: string;
-  length: string;
-  width: string;
-  height: string;
-  tank: string;
-  consumption: string;
-  radio: boolean;
-  refrigerator: boolean;
-  microwave: boolean;
-  gas: boolean;
-  water: boolean;
-  description: string;
 }
 
 export interface Review {
@@ -37,7 +9,41 @@ export interface Review {
   comment: string;
 }
 
+export interface Camper {
+  id: string;
+  name: string;
+  price: number;
+  rating: number;
+  location: string;
+  description: string;
+
+  form: string;
+
+  length: string;
+  width: string;
+  height: string;
+
+  tank: string;
+  consumption: string;
+  transmission: string;
+  engine: string;
+
+  AC: boolean;
+  bathroom: boolean;
+  kitchen: boolean;
+  TV: boolean;
+  radio: boolean;
+  refrigerator: boolean;
+  microwave: boolean;
+  gas: boolean;
+  water: boolean;
+
+  gallery: Gallery[];
+
+  reviews: Review[];
+}
+
 export interface FilterOptions {
-  equipment: 'AC' | 'kitchen' | 'TV' | 'bathroom' | 'automatic' | 'manual';
-  type: 'panelTrack' | 'FullyIntegrated' | 'Alcove';
+  equipment: 'AC' | 'bathroom' | 'kitchen' | 'TV' | 'automatic' | 'manual';
+  type: 'panelTruck' | 'FullyIntegrated' | 'Alcove';
 }

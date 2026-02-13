@@ -1,0 +1,31 @@
+.clientPageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .campersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .noFound {
+    border: 1px solid #dadde1;
+    border-radius: 20px;
+    padding: 24px;
+    min-width: 888px;
+    height: 368px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .noFoundTitle {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.33333;
+  }

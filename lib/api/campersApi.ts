@@ -1,27 +1,35 @@
-import axios from "axios";
+import nextServer from './api';
 
-const campersApi = axios.create({
-  baseURL: "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io",
-});
+export const getCampers = async (
+  page: number,
+  filters: {
+    location: string;
+    equipment: string[];
+    transmission: string;
+    form: string;
+  }
+) => {
+  const params: Record<string, number | string | boolean> = {
+    page,
+    limit: 4,
+  };
 
-export interface CampersQuery {
-  location?: string;
-    form?: string;
-    transmission?: string;
-    AC?: boolean;
-    kitchen?: boolean;
-    TV?: boolean;
-    bathroom?: boolean;
-    page: number;
-    limit: number;
-}
+  if (filters.location) params.location = filters.location;
+  if (filters.transmission) params.transmission = filters.transmission;
+  if (filters.form) params.form = filters.form;
 
-export const getCampers = async (params?: CampersQuery) => {
-  const res = await campersApi.get("/campers", { params });
-  return res.data; 
+  filters.equipment.forEach(eq => {
+    params[eq] = true;
+  });
+
+  const { data } = await nextServer.get('/api/campers', {
+    params,
+  });
+
+  return data;
 };
 
-export const getCamperById = async (id: string) => {
-  const res = await campersApi.get(`/campers/${id}`);
-  return res.data;
-}
+export const getCamperById = async (id: number) => {
+  const { data } = await nextServer.get(`/api/campers/${id}`);
+  return data;
+};
