@@ -3,11 +3,11 @@
 import css from './CatalogItem.module.css';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import BookingForm from '@/components/Catalog/BookingForm/BookingForm';
+import BookingForm from '@/components/BookingForm/BookingForm';
 import { Camper } from '@/lib/types/camper';
 import { getCamperById } from '@/lib/api/campersApi';
-import CamperFeatures from '@/components/Catalog/CamperFeatures/CamperFeatures';
-import CamperReviews from '@/components/Catalog/CamperReviews/CamperReviews';
+import CamperFeatures from '@/components/CamperFeatures/CamperFeatures';
+import CamperReviews from '@/components/CamperReviews/CamperReviews';
 import Loader from '@/components/Loader/Loader';
 
 type Props = {
@@ -21,7 +21,7 @@ const CamperPage = ({ id }: Props) => {
   const [isReviewsSelected, setIsReviewsSelected] = useState(false);
 
   useEffect(() => {
-    getCamperById(id)
+    getCamperById(Number(id))
       .then(data => {
         setCamper(data);
       })

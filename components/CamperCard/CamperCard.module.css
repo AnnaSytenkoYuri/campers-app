@@ -1,0 +1,166 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+  object-position: center;
+  width: 100%;
+  padding: 24px;
+  border-radius: 32px;
+
+  @media screen and (min-width: 1440px) {
+    width: 292px;
+    border-radius: 10px;
+    padding: 0;
+  }
+}
+
+.infoContainer {
+  padding: 12px;
+
+  @media screen and (min-width: 768px) {
+    padding: 24px;
+    max-width: 704px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 0;
+    max-width: 524px;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.priceContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.titleText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.33333;
+  color: #101828;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.reviewsContainer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rewTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.revText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+
+.mapIcon {
+  fill: #101828;
+}
+
+.starIcon {
+  fill: #ffc531;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-bottom: 24px;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  @media screen and (min-width: 768px) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-inline-size: 95%;
+  }
+}
+
+.optionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.optionItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: #f2f4f7;
+}
+
+.labelText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}
+
+.optionIcon {
+  color: #101828;
+  flex-shrink: 0;
+}
+
+.optionIconStroke {
+  fill: none;
+  stroke: currentColor;
+}
+
+.optionIconFill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 1440px) {
+    justify-content: start;
+  }
+}

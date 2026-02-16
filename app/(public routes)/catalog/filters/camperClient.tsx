@@ -5,7 +5,7 @@ import css from './CampersClient.module.css';
 import useFilterStore from '@/store/filterStore';
 import useCamperStore from '@/store/campersStore';
 import { getCampers } from '@/lib/api/campersApi';
-import CamperCard from '@/components/Catalog/CamperCard/CamperCard';
+import CamperCard from '@/components/CamperCard/CamperCard';
 import Loader from '@/components/Loader/Loader';
 import ButtonComponent from '@/components/Button/Button';
 
@@ -38,7 +38,7 @@ export default function CampersClient() {
   }, [_hasHydrated, activeFilters, setCampers, setHasMore]);
 
   const filteredCampers = useMemo(() => {
-    return campers.filter((c: any) => {
+    return campers.filter((c) => {
       if (activeFilters.location) {
         const ok = (c.location ?? '')
           .toLowerCase()
@@ -56,7 +56,7 @@ export default function CampersClient() {
 
       if (activeFilters.equipment?.length) {
         const okAll = activeFilters.equipment.every((k: string) =>
-          Boolean(c?.[k])
+          c && Boolean(c[k as keyof typeof c])
         );
         if (!okAll) return false;
       }
@@ -104,8 +104,8 @@ export default function CampersClient() {
         </div>
       ) : (
         <div className={css.campersContainer}>
-          {filteredCampers.map((camper: any) => (
-            <CamperCard key={camper.id ?? camper._id} camper={camper} />
+          {filteredCampers.map((camper) => (
+            <CamperCard key={camper.id ?? camper.id} camper={camper} />
           ))}
         </div>
       )}

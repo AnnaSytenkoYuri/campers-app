@@ -1,0 +1,20 @@
+.heart {
+    fill: #101828;
+    transition: all 0.3s ease;
+  }
+  
+  .heart.active {
+    fill: #e44848;
+  }
+  
+  .heartBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .heartBtn:hover .heart,
+  .heartBtn:focus-visible .heart {
+    opacity: 0.8;
+  }

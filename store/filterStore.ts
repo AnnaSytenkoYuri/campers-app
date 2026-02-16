@@ -2,6 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface FilterProps {
+//   favorites: any;
+//   toggleFavorite: any;
   filters: string[];
   toggleFilter: (value: string) => void;
   location: string;
