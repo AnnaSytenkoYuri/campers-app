@@ -1,6 +1,6 @@
 'use client';
 
-import css from './CatalogItem.module.css';
+import css from './page.module.css';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import BookingForm from '@/components/BookingForm/BookingForm';
