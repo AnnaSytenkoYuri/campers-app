@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -16,16 +16,16 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
 
   return (
     <div className={css.errorPage}>
-      <h1 className={css.title}>Щось пішло не так!</h1>
+      <h1 className={css.title}>Something went wrong!</h1>
       <p className={css.message}>
-        Вибачте. Сталася помилка під час обробки вашого запиту.
+        Sorry. An error occurred while processing your request.
       </p>
       <div className={css.actions}>
-        <button onClick={reset} className={css.button}>
-          Спробувати знову
+        <button onClick={reset} className="button button--primary">
+          Try again
         </button>
         <Link href="/" className={css.link}>
-          На головну
+          Go to homepage
         </Link>
       </div>
     </div>

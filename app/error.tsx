@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import ErrorPage from '@/components/Error/Error';
 import { useEffect } from 'react';
 
