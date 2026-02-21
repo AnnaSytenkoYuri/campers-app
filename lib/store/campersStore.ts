@@ -1,4 +1,4 @@
-import { Camper } from '@/lib/types/camper';
+import { Camper } from '@/types/camper';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 

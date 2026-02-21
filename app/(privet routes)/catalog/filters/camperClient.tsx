@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import css from './camperClient.module.css';
-import useFilterStore from '@/store/filterStore';
-import useCamperStore from '@/store/campersStore';
+import css from './CampersClient.module.css'
+import useFilterStore from '@/lib/store/filterStore';
+import useCamperStore from '@/lib/store/campersStore';
 import { getCampers } from '@/lib/api/campersApi';
 import CamperCard from '@/components/CamperCard/CamperCard';
 import Loader from '@/components/Loader/Loader';

@@ -5,6 +5,8 @@ interface FavoritesState {
   favorites: string[];
   addFavorite: (id: string) => void;
   toggleFavorite: (id: string) => void;
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
 }
 
 const useFavoritesStore = create<FavoritesState>()(
@@ -21,6 +23,8 @@ const useFavoritesStore = create<FavoritesState>()(
             ? get().favorites.filter(favId => favId !== id)
             : [...get().favorites, id],
         }),
+      _hasHydrated: false,
+      setHasHydrated: state => set({ _hasHydrated: state }),
     }),
     {
       name: 'favorites-storage',

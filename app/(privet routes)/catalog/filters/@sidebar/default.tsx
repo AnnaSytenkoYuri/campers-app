@@ -1,6 +1,6 @@
 'use client';
 
-import useFilterStore from '@/store/filterStore';
+import useFilterStore from '@/lib/store/filterStore';
 import css from './CampersSidebar.module.css';
 import Icon from '@/components/Icon/Icon';
 

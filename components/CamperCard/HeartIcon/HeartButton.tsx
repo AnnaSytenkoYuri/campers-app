@@ -1,24 +1,23 @@
 'use client';
 
-import useFavoritesStore from '@/store/favoriteStore';
+import useFavoritesStore from '@/lib/store/favoriteStore';
 import HeartIcon from './HeartIcon';
 import css from './HeartIcon.module.css';
-import { useEffect, useState } from 'react';
 type HeartButtonProps = {
   id: string;
 };
 
 export default function HeartButton({ id }: HeartButtonProps){
-  const [hydrated ] = useState(false);
+  
 
   const toggleFavorite = useFavoritesStore(s => s.toggleFavorite);
   const favorites = useFavoritesStore(s => s.favorites);
+  const hasHydrated = useFavoritesStore((state) => state._hasHydrated);
 
-  useEffect(() => {
-    // setHydrated(true);
-  }, []);
+  if (!hasHydrated) return null;
 
-  const active = hydrated ? favorites.includes(id) : false;
+
+  const active = favorites.includes(id);
 
   const handleClick = () => {
     toggleFavorite(id);

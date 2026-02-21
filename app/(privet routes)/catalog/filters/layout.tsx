@@ -1,10 +1,8 @@
-import css from './CampersLayout.module.css';
-
+import css from './layout.module.css'
 interface NotesLayoutProps {
   children: React.ReactNode;
   sidebar: React.ReactNode;
 }
-
 const CampersLayout = ({ children, sidebar }: NotesLayoutProps) => {
   return (
     <section className={css.layout}>

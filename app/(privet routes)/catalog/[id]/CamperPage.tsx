@@ -4,7 +4,7 @@ import css from './page.module.css';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import BookingForm from '@/components/BookingForm/BookingForm';
-import { Camper } from '@/lib/types/camper';
+import { Camper } from '@/types/camper';
 import { getCamperById } from '@/lib/api/campersApi';
 import CamperFeatures from '@/components/CamperFeatures/CamperFeatures';
 import CamperReviews from '@/components/CamperReviews/CamperReviews';

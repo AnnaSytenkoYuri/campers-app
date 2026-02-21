@@ -2,7 +2,7 @@
 import toast from 'react-hot-toast';
 import css from './BookingForm.module.css';
 import React from 'react';
-import { useFormDraft } from '@/store/draftStore';
+import { useFormDraft } from '@/lib/store/draftStore';
 import DatePicker from '@/components/Calendar/DatePicker';
 import ButtonComponent from '@/components/Button/Button';
 

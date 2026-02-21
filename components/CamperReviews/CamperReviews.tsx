@@ -1,6 +1,6 @@
 'use client';
 import css from './CamperReviews.module.css';
-import { Review } from '@/lib/types/camper';
+import { Review } from '@/types/camper';
 
 
 interface CamperReviewsProps {
